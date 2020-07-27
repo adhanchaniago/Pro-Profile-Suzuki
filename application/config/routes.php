@@ -57,8 +57,16 @@ $route['user'] = 'backend/User/index';
 $route['headline'] = 'backend/Headline/index';
 
 $route['produk'] = 'backend/Produk/index';
+
 $route['produk/add'] = 'backend/Produk/add';
 $route['produk/detail/(:num)'] = 'backend/Produk/getById/$1';
+
+$route['team'] = 'backend/Team/index';
+$route['team/add'] = 'backend/Team/add';
+$route['team/delete/(:num)'] = 'backend/Team/delete/$1';
+$route['team/detail/(:num)'] = 'backend/Team/detail/$1';
+$route['team/edit/(:num)'] = 'backend/Team/edit/$1';
+$route['team/edit'] = 'backend/Team/edit';
 
 $route['login'] = 'backend/Login/index';
 $route['logout'] = 'backend/Login/Logout';

@@ -49,6 +49,8 @@
 		</nav>
 	</header>
 
+
+
 	<!-- <div id="main-banner" class="banner-one" data-scroll-index="0">
 		<div data-src="<?= base_url('assets/frontend/uploads/slide-1.jpg'); ?>">
 			<div class="camera_caption">
@@ -86,7 +88,7 @@
 		<?php endforeach ?>
 	</div>
 
-	<div style="padding: 20px 0;" id="haedline " data-scroll-index="1" class="section wb">
+	<!-- <div style="padding: 20px 0;" id="haedline " data-scroll-index="1" class="section wb">
 		<div class="container">
 			<div class="section-title text-center">
 				<h3>Headline</h3>
@@ -95,7 +97,43 @@
 				</p>
 			</div>
 		</div>
+	</div> -->
+	<div style="padding: 20px 0;" id="haedline " data-scroll-index="1" class="section wb">
+		<div class="container">
+			<div class="section-title text-center">
+				<h3>Team Kami</h3>
+				<div class="owl-carousel owl-theme">
+					<?php foreach ($team as $row) : ?>
+						<a target="_blank" href="tel:<?= $row->team_wa; ?>" class="item thumbnail">
+							<img style="height: 300px;" src="<?= base_url('upload/team/' . $row->team_foto); ?>" alt="">
+							<div class="caption">
+								<p><?= $row->team_nama; ?> <br> <span class="fa fa-phone"></span> <?= $row->team_wa; ?></p>
+							</div>
+						</a>
+					<?php endforeach; ?>
+				</div>
+				<script>
+					$('.owl-carousel').owlCarousel({
+						loop: true,
+						margin: 10,
+						nav: true,
+						responsive: {
+							0: {
+								items: 1
+							},
+							600: {
+								items: 3
+							},
+							1000: {
+								items: 5
+							}
+						}
+					})
+				</script>
+			</div>
+		</div>
 	</div>
+
 
 	<!-- <div style="padding: 20px 0;" id="harga" data-scroll-index="2" class="section wb">
 		<div class="container">

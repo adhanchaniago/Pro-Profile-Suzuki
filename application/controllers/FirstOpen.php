@@ -12,7 +12,6 @@ class FirstOpen extends CI_Controller
 		$this->load->model('M_Produk');
 		$this->load->model('M_Berita');
 		$this->load->model('M_Contact');
-
 	}
 
 	public function index()
@@ -23,6 +22,7 @@ class FirstOpen extends CI_Controller
 		$data['harga'] = $this->M_Produk->harga();
 		$data['kontak'] = $this->M_Produk->kontak();
 		$data['berita'] = $this->M_Produk->berita();
+		$data['team'] = $this->M_Produk->team();
 		$this->load->view('frontend/overview', $data);
 	}
 

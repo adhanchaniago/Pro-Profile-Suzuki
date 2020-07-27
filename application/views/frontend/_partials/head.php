@@ -21,6 +21,14 @@
 	<link rel="stylesheet" href="<?= base_url('assets/frontend/style.css'); ?>">
 	<!-- Colors CSS -->
 
+
+
+	<link rel="stylesheet" href="<?= base_url('assets/frontend/assets/owlcarousel/assets/owl.carousel.min.css'); ?>">
+	<link rel="stylesheet" href="<?= base_url('assets/frontend/assets/owlcarousel/assets/owl.theme.default.min.css'); ?>">
+
+	<script src="<?= base_url('assets/frontend/assets/vendors/jquery.min.js'); ?>"></script>
+	<script src="<?= base_url('assets/frontend/assets/owlcarousel/owl.carousel.js'); ?>"></script>
+
 	<!-- ALL VERSION CSS -->
 	<link rel="stylesheet" href="<?= base_url('assets/frontend/css/versions.css'); ?>">
 	<!-- Responsive CSS -->

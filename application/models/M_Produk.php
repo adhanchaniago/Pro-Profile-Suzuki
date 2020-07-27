@@ -53,6 +53,11 @@ class M_Produk extends CI_Controller
     {
         return $this->db->get_where('tb_berita', array('berita_id' => $id))->row();
     }
+
+    public function team()
+    {
+        return $this->db->get('tb_team')->result();
+    }
 }
 
 /* End of file M_Produk.php */

@@ -1,3 +1,6 @@
+<script src="<?= base_url('assets/frontend/assets/vendors/highlight.js'); ?>"></script>
+<script src="<?= base_url('assets/frontend/assets/js/app.js'); ?>"></script>
+
 <!-- ALL JS FILES -->
 <script src="<?= base_url('assets/frontend/js/all.js'); ?>"></script>
 <!-- Camera Slider -->
@@ -8,7 +11,6 @@
 <!-- ALL PLUGINS -->
 <script src="<?= base_url('assets/frontend/js/custom.js'); ?>"></script>
 <!-- <script src="<?= base_url('assets/frontend/js/jquery.vide.js'); ?>"></script> -->
-
 
 <!-- WhatsHelp.io widget -->
 <script type="text/javascript">
