@@ -102,21 +102,26 @@
 		<div class="container">
 			<div class="section-title text-center">
 				<h3>Team Kami</h3>
-				<div class="owl-carousel owl-theme">
+				<div id="owl-demo" class="owl-carousel owl-theme">
 					<?php foreach ($team as $row) : ?>
-						<a target="_blank" href="tel:<?= $row->team_wa; ?>" class="item thumbnail">
-							<img style="height: 300px;" src="<?= base_url('upload/team/' . $row->team_foto); ?>" alt="">
-							<div class="caption">
-								<p><?= $row->team_nama; ?> <br> <span class="fa fa-phone"></span> <?= $row->team_wa; ?></p>
-							</div>
-						</a>
+						<div class="item">
+							<a target="_blank" href="https://api.whatsapp.com/send?phone=<?= $row->team_wa; ?>" class=" thumbnail">
+								<img style="height: 280px;" src="<?= base_url('upload/team/' . $row->team_foto); ?>" alt="">
+								<div class="caption">
+									<p><?= $row->team_nama; ?> <br> <span class="fa fa-phone"></span> <?= $row->team_wa; ?></p>
+								</div>
+							</a>
+						</div>
 					<?php endforeach; ?>
 				</div>
 				<script>
 					$('.owl-carousel').owlCarousel({
+						//default settings:
+						autoplay: true,
+						autoplayTimeout: 5000,
+						autoplayHoverPause: false,
 						loop: true,
 						margin: 10,
-						nav: true,
 						responsive: {
 							0: {
 								items: 1
@@ -131,6 +136,39 @@
 					})
 				</script>
 			</div>
+		</div>
+	</div>
+
+	<div style="padding: 50px 0;" id="berita" data-scroll-index="4" class="section lb">
+		<div class="container">
+			<div class="section-title text-center">
+				<h3>Berita dan Promo</h3>
+				<p class="lead">Syarat dan Ketentuan Berlaku, Hotline <a href="https://api.whatsapp.com/send?phone=<?= $kontak->contact_nohp ?>"><?= '+' . $kontak->contact_nohp ?></a></p>
+			</div>
+
+			<div class="row">
+				<?php foreach ($berita as $dataBerita) : ?>
+					<div class="col-md-4 col-sm-6 col-lg-4" style="margin-bottom: 30px;">
+						<div class="post-box">
+							<div class="post-thumb">
+								<center>
+									<img style="width: 100%; height: 220px" src="<?= base_url('upload/berita/' . $dataBerita->berita_gambar); ?>" class="img-responsive" style="height: 300px;" alt="post-img"></center>
+								<div class="date">
+									<span><?= tgl_indo($dataBerita->berita_post) ?></span>
+								</div>
+							</div>
+							<div class="post-info">
+								<h4><?= $dataBerita->berita_judul ?></h4>
+								<ul>
+									<li>by admin</li>
+								</ul>
+								<p><a href="<?= site_url('detail/' . $dataBerita->berita_id); ?>" class="btn btn-primary btn-sm">Lanjut Baca</a></p>
+							</div>
+						</div>
+					</div>
+				<?php endforeach ?>
+			</div>
+
 		</div>
 	</div>
 
@@ -181,38 +219,7 @@
 		</div>
 	</div>
 
-	<div style="padding: 80px 0;" id="berita" data-scroll-index="4" class="section lb">
-		<div class="container">
-			<div class="section-title text-center">
-				<h3>Berita dan Promo</h3>
-				<p class="lead">Syarat dan Ketentuan Berlaku, Hotline <a href="https://api.whatsapp.com/send?phone=<?= $kontak->contact_nohp ?>"><?= '+' . $kontak->contact_nohp ?></a></p>
-			</div>
 
-			<div class="row">
-				<?php foreach ($berita as $dataBerita) : ?>
-					<div class="col-md-4 col-sm-6 col-lg-4" style="margin-bottom: 30px;">
-						<div class="post-box">
-							<div class="post-thumb">
-								<center>
-									<img style="width: 100%; height: 220px" src="<?= base_url('upload/berita/' . $dataBerita->berita_gambar); ?>" class="img-responsive" style="height: 300px;" alt="post-img"></center>
-								<div class="date">
-									<span><?= $dataBerita->berita_post ?></span>
-								</div>
-							</div>
-							<div class="post-info">
-								<h4><?= $dataBerita->berita_judul ?></h4>
-								<ul>
-									<li>by admin</li>
-								</ul>
-								<p><a href="<?= site_url('detail/' . $dataBerita->berita_id); ?>" class="btn btn-primary btn-sm">Lanjut Baca</a></p>
-							</div>
-						</div>
-					</div>
-				<?php endforeach ?>
-			</div>
-
-		</div>
-	</div>
 
 	<?php $this->load->view('frontend/_partials/footer.php'); ?>
 

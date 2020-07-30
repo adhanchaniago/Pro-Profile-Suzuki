@@ -30,7 +30,7 @@
                                     <a href="<?= base_url('berita'); ?>" type="button" class="btn btn-success mb-3">
                                         Kembali
                                     </a>
-                                    <form action="<?php site_url('berita/save') ?>" method="post" enctype="multipart/form-data">
+                                    <form action="<?php site_url('berita/edit') ?>" method="post" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label>Judul Berita</label>
                                             <input value="<?= $berita->berita_id ?>" type="hidden" name="id" class="form-control">

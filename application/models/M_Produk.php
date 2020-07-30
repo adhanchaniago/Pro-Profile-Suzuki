@@ -41,7 +41,7 @@ class M_Produk extends CI_Controller
         $hasil = $this->db->get();
         return $hasil->row();
     }
-    public function kontak($offset = 0)
+    public function kontak()
     {
         return $this->db->get('tb_contact')->row();
     }
@@ -49,6 +49,12 @@ class M_Produk extends CI_Controller
     {
         return $this->db->get('tb_berita')->result();
     }
+
+    // public function berita($start, $limit)
+    // {
+    //     return $this->db->get('tb_berita', $limit, $start);
+    // }
+
     public function detailBerita($id)
     {
         return $this->db->get_where('tb_berita', array('berita_id' => $id))->row();

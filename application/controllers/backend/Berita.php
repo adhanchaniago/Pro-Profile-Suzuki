@@ -108,13 +108,16 @@ class Berita extends CI_Controller
             $config['upload_path'] = './upload/berita/';
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
             $config['encrypt_name'] = TRUE; //enkripsi file name upload
+
             $this->load->library('upload', $config); //call library upload 
             $this->upload->initialize($config);
+
             $data = array('upload_data' => $this->upload->data());
 
-            if (empty($data)) {
-                $gambar = $this->input->post('gambar');
+            if (!$this->upload->do_upload('gambar')) {
+
                 $id = $this->input->post('id');
+                $gambar = $this->input->post('gambar');
                 $judul = $this->input->post('judul');
                 $isi = $this->input->post('isi');
                 $tgl = date('Y-m-d');
@@ -128,36 +131,23 @@ class Berita extends CI_Controller
                 $this->M_Berita->edit($id, $sql);
                 redirect(site_url('berita'));
             } else {
-                $this->load->model('M_Berita');
 
-                $config['upload_path'] = './upload/berita/';
-                $config['allowed_types'] = 'gif|jpg|png|jpeg';
-                $config['encrypt_name'] = TRUE; //enkripsi file name upload
+                $data = array('upload_data' => $this->upload->data());
+                $gambar = $data['upload_data']['file_name'];
 
-                $this->load->library('upload', $config); //call library upload 
-                $this->upload->initialize($config);
+                $id = $this->input->post('id');
+                $judul = $this->input->post('judul');
+                $isi = $this->input->post('isi');
+                $tgl = date('Y-m-d');
 
-                if (!$this->upload->do_upload('gambar')) {
-                    $error = array('error' => $this->upload->display_errors());
-                    return redirect(site_url('berita'));
-                } else {
-                    $data = array('upload_data' => $this->upload->data());
-                    $gambar = $data['upload_data']['file_name'];
-
-                    $id = $this->input->post('id');
-                    $judul = $this->input->post('judul');
-                    $isi = $this->input->post('isi');
-                    $tgl = date('Y-m-d');
-
-                    $sql = array(
-                        'berita_judul' => $judul,
-                        'berita_isi' => $isi,
-                        'berita_gambar' => $gambar,
-                        'berita_post' => $tgl
-                    );
-                    $this->M_Berita->edit($id, $sql);
-                    redirect(site_url('berita'));
-                }
+                $sql = array(
+                    'berita_judul' => $judul,
+                    'berita_isi' => $isi,
+                    'berita_gambar' => $gambar,
+                    'berita_post' => $tgl
+                );
+                $this->M_Berita->edit($id, $sql);
+                redirect(site_url('berita'));
             }
         }
     }

@@ -34,7 +34,7 @@
                                     <div class="row">
                                         <div class="col-md-8">
                                             <h2 class="mb-0"><?= $berita->berita_judul ?></h2>
-                                            <small><?= $berita->berita_post ?></small>
+                                            <small><?= tgl_indo($berita->berita_post) ?></small>
                                             <p align="justify">
                                                 <?= $berita->berita_isi ?>
                                             </p>

@@ -26,7 +26,6 @@ class M_Berita extends CI_Model
 
     public function edit($id, $data)
     {
-
         $this->db->where('berita_id', $id);
         return $this->db->update('tb_berita', $data);
     }

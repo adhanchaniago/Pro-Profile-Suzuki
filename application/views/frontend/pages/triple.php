@@ -14,7 +14,7 @@
                     <img src="<?= base_url('upload/berita/' . $row->berita_gambar); ?>" alt="">
                     <div class="caption" style="top:30px;">
                          <h3 class="mb-10"><?= $row->berita_judul ?></h3>
-                         <p><?= $row->berita_post ?></p>
+                         <p><?= tgl_indo($row->berita_post) ?></p>
                     </div>
                     <div class="caption" style="bottom:50px;">
                          <p><a href="<?php echo site_url('detail/' . $row->berita_id) ?>" class="btn-outline-white">Detail</a></p>

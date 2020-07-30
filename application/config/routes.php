@@ -87,6 +87,7 @@ $route['harga/edit'] = 'backend/Harga/edit';
 $route['harga/(:num)'] = 'backend/Harga/getById/$1';
 $route['berita/detail/(:num)'] = 'backend/Berita/getById/$1';
 $route['berita/edit/(:num)'] = 'backend/Berita/edit/$1';
+$route['berita/edit/'] = 'backend/Berita/edit';
 $route['berita/delete/(:num)'] = 'backend/Berita/delete/$1';
 $route['produk/delete/(:num)'] = 'backend/Produk/delete/$1';
 

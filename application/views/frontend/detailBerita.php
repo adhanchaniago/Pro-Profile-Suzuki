@@ -74,7 +74,7 @@
 			<div style="margin-bottom: 20px;" class="section-title text-left">
 				<h3>Detail Berita</h3>
 				<h4><?= $berita->berita_judul ?></h4>
-				<small><?= $berita->berita_post ?></small>
+				<small><?= tgl_indo($berita->berita_post) ?></small>
 			</div>
 
 			<div class="row">
